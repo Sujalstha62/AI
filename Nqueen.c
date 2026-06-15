@@ -1,19 +1,20 @@
 #include<stdio.h>
 #include<stdbool.h>
-void printBoard(int board[10][10],int n){
+#define N 20
+void printBoard(int board[N][N],int n){
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             if(board[i][j]==1){
                 printf("Q ");
             }
             else{
-                printf("X ");
+                printf(". ");
             }
         }
         printf("\n");
     }
 }
-bool issafe(int board[10][10],int row,int col,int n){
+bool issafe(int board[N][N],int row,int col,int n){
     for(int i=0;i<col;i++){
         if(board[row][i]==1){
             return false;
@@ -31,7 +32,7 @@ bool issafe(int board[10][10],int row,int col,int n){
     }
     return true;
 }
-bool placeQueen(int board[10][10], int col, int n) {
+bool placeQueen(int board[N][N], int col, int n) {
     if (col >= n) {
         return true; 
     }
@@ -47,7 +48,7 @@ bool placeQueen(int board[10][10], int col, int n) {
     return false;
 }
 int main(){
-    int board[10][10],n;
+    int board[N][N],n;
     printf("Enter the number of queens:");
     scanf("%d",&n);
     for(int i=0;i<n;i++){
